@@ -1,0 +1,77 @@
+% Any commands that need to be run before the \documentclass command below
+% should be done in the preclass file below.
+\input{setup/preclass}
+
+\documentclass[conference]{IEEEtran}
+
+% Do any other setup of packages, commands, in the relevant setup file, imported
+% with the following file.
+\input{setup/main}
+
+\begin{document}
+
+\title{Title
+\thanks{Acknowledgments}
+}
+
+% This block is set up so that if the submit flag is set to true, then the
+% author information is shown, while placeholder information is added otherwise.
+% Adding placeholder information ensures that space limitations are visible even
+% during the initial submission process. The number of authors should match
+% between these two cases.
+\ifsubmit{}
+  \author{%
+    \IEEEauthorblockN{Alice}
+    \IEEEauthorblockA{%
+      \textit{Institution A}\\
+      City, Country \\
+      alice@example.com
+    }
+    \and
+    \IEEEauthorblockN{Bob}
+    \IEEEauthorblockA{%
+      \textit{Institution B}\\
+      City, Country \\
+      bob@example.com
+    }
+  }
+\else
+  \author{%
+    \IEEEauthorblockN{Author 1}
+    \IEEEauthorblockA{%
+      \textit{Institution Name}\\
+      City, Country \\
+      Email/ORCID
+    }
+    \and
+    \IEEEauthorblockN{Author 2}
+    \IEEEauthorblockA{%
+      \textit{Institution Name}\\
+      City, Country \\
+      Email/ORCID
+    }
+  }
+\fi
+
+\maketitle
+
+% Place all needed sections, including the abstract, here. In some cases, other
+% commands may need to be placed in between sections (e.g., some styles place
+% keywords between the abstract and main paper body). There's almost always an
+% abstract, intro, and conclusion, so place those here.
+
+\input{sec/abstract}
+
+% The IEEEtran format requires this to be placed here. An up-to-date list of
+% IEEE keywords can be found at:
+% https://www.ieee.org/content/dam/ieee-org/ieee/web/org/pubs/ieee-taxonomy.pdf
+\begin{IEEEkeywords}
+  Keyword 1, Keyword 2
+\end{IEEEkeywords}
+
+\input{sec/intro}
+
+\bibliographystyle{IEEEtran}
+\bibliography{bib}
+
+\end{document}

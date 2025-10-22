@@ -1,0 +1,72 @@
+% User-defined commands go here. For any commands that require a specific
+% package to be loaded, begin the block with a comment line that specifies
+% "Required: ..." to clearly mark that it's a package-specific customization.
+
+% Make sure to-do items are clearly visible in the text.
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+% Show draft text in blue.
+\newcommand{\draft}[1]{\textcolor{blue}{#1}}
+
+% IEEEtran format: make the author blocks line up properly.
+\makeatletter % changes the catcode of @ to 11
+\newcommand{\linebreakand}{%
+  \end{@IEEEauthorhalign}
+  \hfill\mbox{}\par
+  \mbox{}\hfill\begin{@IEEEauthorhalign}
+}
+\makeatother % changes the catcode of @ back to 12
+
+% For some papers, we define new notation that only works in math mode. Ensure
+% that these can be easily mentioned in text, with the proper spacing, using the
+% following wrapper command. Then, when a mathematical symbol like \foo is
+% defined, it can be used in text with \emxs{\foo}.
+\newcommand{\emxs}[1]{\ensuremath{#1}\xspace}
+
+% Improve formatting of paragraphs. Some formats produce warnings if \paragraph
+% is redefined, so don't enable this by default.
+%\renewcommand{\paragraph}[1]{\medskip\noindent\textbf{#1}.}
+
+% Required: cite (possibly with noadjust option)
+% Fix ugly citation style: [1],[2] --> [1,2]. Make sure this doesn't violate
+% your conference's style guidelines.
+%\renewcommand{\citepunct}{, }
+%\renewcommand{\citedash}{--}
+
+% Required: enumitem
+% Environment to define in-paragraph lists.
+\newenvironment{inparaenum}[1][(\arabic*)]
+{\begin{enumerate*}[label={#1}, itemjoin={{, }}, itemjoin*={{, and }}]}
+{\end{enumerate*}}
+
+\newenvironment{compactenum}[1][\arabic*.]
+{\begin{enumerate}[label={#1}, noitemsep]}
+{\end{enumerate}}
+
+\newenvironment{compactitem}
+{\begin{itemize}[noitemsep]}
+{\end{itemize}}
+
+% Required: hyperref
+% The \autoref command ensures that the proper term is used for the relevant
+% reference. Customize the relevant terms for each reference type here.
+\renewcommand*{\sectionautorefname}{Sec.}
+\renewcommand*{\figureautorefname}{Fig.}
+\renewcommand*{\tableautorefname}{Tab.}
+% In some templates, subsections are referred to as "Subsection x.y", while
+% they may be referred to as "Section x.y" instead. The following line ensures
+% that sections and subsections are always referred to with the same identifier.
+\let\subsectionautorefname\sectionautorefname
+
+% Required: msc
+% Message sequence charts by default display "msc" in the corner of the chart.
+% Turn that off here.
+%\setmsckeyword{}
+
+% Make it easier to quote and paraphrase.
+\newcommand{\say}[1]{``#1''}
+\newcommand{\paraphrase}[1]{[\emph{#1}]}
+
+% Highlight themes in a specific format. Useful in papers that use thematic
+% analysis.
+\newcommand{\theme}[1]{\emph{#1}}
+
