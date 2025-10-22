@@ -324,3 +324,7 @@ TSWLatexianTemp*
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
+
+# This is the default output from the paper build process, but make sure it
+# isn't added to the repo, since it should be built from source.
+paper.pdf
